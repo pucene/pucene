@@ -1,0 +1,10 @@
+vendor/
+composer.lock
+composer.phar
+phpunit.xml
+
+.idea
+*.iml
+
+.php-cs-fixer.php
+.php-cs-fixer.cache
