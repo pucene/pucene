@@ -15,6 +15,8 @@ use Pucene\Analysis\AnalyzerInterface;
 use Pucene\Index\Driver\DriverInterface;
 use Pucene\Index\Model\Document;
 use Pucene\Index\Model\Field;
+use Pucene\Search\Element\ElementInterface;
+use Pucene\Search\Search;
 use Schranz\Search\SEAL\Schema\Field\AbstractField;
 use Schranz\Search\SEAL\Schema\FieldType;
 use Schranz\Search\SEAL\Schema\Index;
@@ -79,5 +81,10 @@ class PuceneIndex
     public function delete(string $identifier): void
     {
         $this->driver->createRepository()->remove($identifier);
+    }
+
+    public function createSearch(ElementInterface $element): Search
+    {
+        return new Search($element, $this->driver->createQueryBuilder());
     }
 }

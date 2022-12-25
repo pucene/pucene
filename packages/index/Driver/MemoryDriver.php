@@ -11,6 +11,7 @@
 
 namespace Pucene\Index\Driver;
 
+use Pucene\Search\QueryBuilder\QueryBuilderInterface;
 use Schranz\Search\SEAL\Schema\Index;
 
 class MemoryDriver implements DriverInterface
@@ -39,5 +40,10 @@ class MemoryDriver implements DriverInterface
         }
 
         return $this->repository;
+    }
+
+    public function createQueryBuilder(): QueryBuilderInterface
+    {
+        // TODO: Implement createQueryBuilder() method.
     }
 }

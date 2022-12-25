@@ -16,6 +16,7 @@ use Doctrine\DBAL\Platforms\MySQLPlatform;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Pucene\Index\Driver\DriverInterface;
 use Pucene\Index\Driver\RepositoryInterface;
+use Pucene\Search\QueryBuilder\QueryBuilderInterface;
 use Schranz\Search\SEAL\Schema\Index;
 
 class DbalDriver implements DriverInterface
@@ -69,5 +70,10 @@ class DbalDriver implements DriverInterface
             $this->index,
             $this->schema,
         );
+    }
+
+    public function createQueryBuilder(): QueryBuilderInterface
+    {
+        // TODO: Implement createQueryBuilder() method.
     }
 }

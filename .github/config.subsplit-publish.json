@@ -19,6 +19,11 @@
             "name": "SealAdapter",
             "directory": "packages/seal-adapter",
             "target": "git@github.com:pucene/seal-adapter.git"
+        },
+        {
+            "name": "Search",
+            "directory": "packages/search",
+            "target": "git@github.com:pucene/search.git"
         }
     ]
 }
