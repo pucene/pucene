@@ -10,9 +10,9 @@ with this source code in the file LICENSE.
 EOF;
 
 $finder = PhpCsFixer\Finder::create()
-    ->in('src')
+    ->in('packages')
     ->exclude([
-        'src/Analysis/vendor',
+        'src/*/vendor',
     ])
 ;
 

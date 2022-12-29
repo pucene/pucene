@@ -1,0 +1,9 @@
+{
+    "sub-splits": [
+        {
+            "name": "Analysis",
+            "directory": "packages/analysis",
+            "target": "git@github.com:pucene/analysis.git"
+        }
+    ]
+}

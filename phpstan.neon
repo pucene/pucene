@@ -4,6 +4,6 @@ includes:
 parameters:
     level: max
     paths:
-        - src
+        - packages
     excludePaths:
-        - src/*/vendor/*
+        - packages/*/vendor/*
