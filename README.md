@@ -12,5 +12,5 @@ library.
 
 This repository is the monorepository of the pucene project and contains following components:
 
-* [Analysis](src/Analysis): Text analysis is the process of converting unstructured text, like the body of an email or 
+* [Analysis](packages/analysis): Text analysis is the process of converting unstructured text, like the body of an email or 
   a product description, into a structured format that’s optimized for search.

@@ -16,7 +16,7 @@ jobs:
 
         defaults:
             run:
-                working-directory: src/Analysis
+                working-directory: packages/analysis
 
         runs-on: ubuntu-latest
 
@@ -31,7 +31,7 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: vendor
-                  key: ${{ runner.os }}-php-${{ hashFiles('/src/Analysis/composer.json') }}
+                  key: ${{ runner.os }}-php-${{ hashFiles('/packages/analysis/composer.json') }}
                   restore-keys: |
                       ${{ runner.os }}-php-
 
