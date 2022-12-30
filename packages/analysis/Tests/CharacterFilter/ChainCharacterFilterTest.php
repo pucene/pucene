@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Pucene\Analysis\Testing\CharacterFilter;
+namespace Pucene\Analysis\Tests\CharacterFilter;
 
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;

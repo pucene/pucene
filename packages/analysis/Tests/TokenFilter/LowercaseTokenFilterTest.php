@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Pucene\Analysis\Testing\TokenFilter;
+namespace Pucene\Analysis\Tests\TokenFilter;
 
 use PHPUnit\Framework\TestCase;
 use Pucene\Analysis\Token;

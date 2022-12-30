@@ -8,8 +8,12 @@
             "email": "johannes@sulu.io"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
-        "pucene/analysis": "*@dev"
+        "pucene/analysis": "@dev",
+        "pucene/dbal-driver": "@dev",
+        "pucene/index": "@dev",
+        "pucene/seal-adapter": "@dev"
     },
     "require-dev": {
         "phpstan/phpstan": "^1.9",
@@ -31,6 +35,31 @@
         {
             "type": "path",
             "url": "./packages/analysis",
+            "canonical": false,
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./packages/dbal-driver",
+            "canonical": false,
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./packages/index",
+            "canonical": false,
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "./packages/seal-adapter",
+            "canonical": false,
             "options": {
                 "symlink": true
             }

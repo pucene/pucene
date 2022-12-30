@@ -1,0 +1,1 @@
+# Pucene: Seal Adapter

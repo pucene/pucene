@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Pucene\Analysis\Testing\Tokenizer;
+namespace Pucene\Analysis\Tests\Tokenizer;
 
 use PHPUnit\Framework\TestCase;
 use Pucene\Analysis\Token;
