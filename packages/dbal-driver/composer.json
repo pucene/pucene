@@ -1,10 +1,10 @@
 {
-    "name": "pucene/analysis",
-    "description": "Analysis package for pucene.",
+    "name": "pucene/dbal-driver",
+    "description": "Dbal driver for pucene.",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Pucene\\Analysis\\": ""
+            "Pucene\\DbalDriver\\": ""
         },
         "exclude-from-classmap": [
             "Tests/",
@@ -13,7 +13,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Pucene\\Analysis\\Tests\\": "Tests/"
+            "Pucene\\DbalDriver\\Tests\\": "Tests/"
         }
     },
     "authors": [
@@ -23,12 +23,12 @@
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "doctrine/dbal": "^3.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "phpspec/prophecy-phpunit": "^2.0",
-        "symfony/console": "^6.2"
+        "phpspec/prophecy-phpunit": "^2.0"
     },
     "scripts": {
         "test": "@phpunit Tests",

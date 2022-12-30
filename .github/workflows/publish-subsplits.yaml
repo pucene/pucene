@@ -23,8 +23,8 @@ jobs:
             - uses: frankdejonge/use-github-token@1.0.1
               with:
                   authentication: 'pucene:${{ secrets.PERSONAL_ACCESS_TOKEN }}'
-                  user_name: 'Alexander Schranz'
-                  user_email: 'alexander@sulu.io'
+                  user_name: 'Johannes Wachter'
+                  user_email: 'johannes@sulu.io'
             - name: Cache splitsh-lite
               id: splitsh-cache
               uses: actions/cache@v2

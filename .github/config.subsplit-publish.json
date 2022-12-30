@@ -4,6 +4,21 @@
             "name": "Analysis",
             "directory": "packages/analysis",
             "target": "git@github.com:pucene/analysis.git"
+        },
+        {
+            "name": "DbalDriver",
+            "directory": "packages/dbal-driver",
+            "target": "git@github.com:pucene/dbal-driver.git"
+        },
+        {
+            "name": "Index",
+            "directory": "packages/index",
+            "target": "git@github.com:pucene/index.git"
+        },
+        {
+            "name": "SealAdapter",
+            "directory": "packages/seal-adapter",
+            "target": "git@github.com:pucene/seal-adapter.git"
         }
     ]
 }

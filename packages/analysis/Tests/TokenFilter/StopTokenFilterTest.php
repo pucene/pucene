@@ -9,13 +9,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Pucene\Analysis\Testing\TokenFilter;
+namespace Pucene\Analysis\Tests\TokenFilter;
 
 use PHPUnit\Framework\TestCase;
 use Pucene\Analysis\Token;
-use Pucene\Analysis\TokenFilter\EnglishStopTokenFilter;
+use Pucene\Analysis\TokenFilter\StopTokenFilter;
 
-class EnglishStopTokenFilterTest extends TestCase
+class StopTokenFilterTest extends TestCase
 {
     /**
      * @return mixed[]
@@ -23,21 +23,22 @@ class EnglishStopTokenFilterTest extends TestCase
     public function provideFilterData(): array
     {
         return [
-            ['test', ['test']],
-            ['TEST', ['TEST']],
-            ['and', []],
-            ['AND', []],
+            ['test', ['test'], ['and']],
+            ['TEST', ['TEST'], ['and']],
+            ['and', [], ['and']],
+            ['AND', [], ['and']],
         ];
     }
 
     /**
      * @param string[] $expected
+     * @param string[] $stopWords
      *
      * @dataProvider provideFilterData
      */
-    public function testFilter(string $input, array $expected): void
+    public function testFilter(string $input, array $expected, array $stopWords): void
     {
-        $filter = new EnglishStopTokenFilter();
+        $filter = new StopTokenFilter($stopWords);
 
         $this->assertSame(
             $expected,

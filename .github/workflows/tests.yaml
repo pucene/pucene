@@ -1,0 +1,37 @@
+name: Test
+
+on:
+    pull_request:
+
+permissions:
+    contents: read
+
+# automatically cancel previously started workflows when pushing a new commit to a branch
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    analysis:
+        name: Analysis
+        uses: ./.github/workflows/callable-test.yaml
+        with:
+            directory: 'packages/analysis'
+
+    dbal-driver:
+        name: Dbal Driver
+        uses: ./.github/workflows/callable-test.yaml
+        with:
+            directory: 'packages/dbal-driver'
+
+    index:
+        name: Index
+        uses: ./.github/workflows/callable-test.yaml
+        with:
+            directory: 'packages/index'
+
+    seal-adapter:
+        name: Seal Adapter
+        uses: ./.github/workflows/callable-test.yaml
+        with:
+            directory: 'packages/seal-adapter'

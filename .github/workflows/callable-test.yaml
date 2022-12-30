@@ -1,0 +1,61 @@
+name: Callable Test
+
+on:
+    workflow_call:
+        inputs:
+            directory:
+                required: true
+                type: string
+            docker:
+                required: false
+                default: false
+                type: boolean
+
+jobs:
+    test:
+        name: "PHP ${{ matrix.php-version }}"
+        runs-on: ubuntu-latest
+
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - php-version: '8.1'
+                      dependency-versions: 'lowest'
+
+                    - php-version: '8.2'
+                      dependency-versions: 'highest'
+
+        steps:
+            - name: Checkout project
+              uses: actions/checkout@v2
+
+            - name: Start Docker services
+              if: ${{ inputs.docker }}
+              working-directory: ${{ inputs.directory }}
+              run: |
+                  docker compose up --wait
+
+            - name: Install and configure PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  tools: 'composer:v2'
+                  ini-values: memory_limit=-1
+                  coverage: none
+
+            - name: Cache Composer packages
+              id: composer-cache
+              uses: actions/cache@v3
+              with:
+                  path: vendor
+                  key: ${{ runner.os }}-php-${{ hashFiles('${{ inputs.directory }}/composer.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-php-
+
+            - name: Install dependencies
+              run: composer install --prefer-dist --no-progress --working-dir ${{ inputs.directory }}
+
+            - name: Run test suite
+              run: composer run-script test
+              working-directory: ${{ inputs.directory }}
