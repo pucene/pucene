@@ -7,6 +7,8 @@ If you search for `Quick fox jumps`, you probably want the document that contain
 `A quick brown fox jumps over the lazy dog`, and you might also want documents that contain related words like 
 `fast fox` or `foxes leap`.
 
+> This is a subtree split of the `pucene/pucene` project create issues in the [main repository](https://github.com/pucene/pucene).
+
 ## Tokenization
 
 Analysis makes full-text search possible through tokenization: breaking a text down into smaller chunks, called tokens.

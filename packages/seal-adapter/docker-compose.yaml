@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+    database:
+        image: mysql/mysql-server:8.0
+        environment:
+            MYSQL_DATABASE: pucene
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            MYSQL_ROOT_HOST: '%'
+        ports:
+            - 3306:3306
+        volumes:
+            - ./.docker/data/mysql:/var/lib/mysql

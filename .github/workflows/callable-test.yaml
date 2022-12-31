@@ -21,10 +21,10 @@ jobs:
             matrix:
                 include:
                     - php-version: '8.1'
-                      dependency-versions: 'lowest'
+                      prefer-lowest: 1
 
                     - php-version: '8.2'
-                      dependency-versions: 'highest'
+                      prefer-lowest: 0
 
         steps:
             - name: Checkout project
@@ -54,7 +54,10 @@ jobs:
                       ${{ runner.os }}-php-
 
             - name: Install dependencies
-              run: composer install --prefer-dist --no-progress --working-dir ${{ inputs.directory }}
+              run: composer update --prefer-dist --no-progress --working-dir ${{ inputs.directory }}
+              env:
+                  COMPOSER_ROOT_VERSION: 0.1.0
+                  COMPOSER_PREFER_LOWEST: ${{ matrix.prefer-lowest }}
 
             - name: Run test suite
               run: composer run-script test
