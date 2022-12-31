@@ -35,3 +35,4 @@ jobs:
         uses: ./.github/workflows/callable-test.yaml
         with:
             directory: 'packages/seal-adapter'
+            docker: true

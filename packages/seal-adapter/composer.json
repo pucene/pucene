@@ -24,6 +24,8 @@
     ],
     "require": {
         "php": "^8.1",
+        "pucene/index": "^0.1@dev",
+        "pucene/dbal-driver": "^0.1@dev",
         "schranz-search/seal": "^0.1@dev"
     },
     "require-dev": {
@@ -34,5 +36,28 @@
         "test": "@phpunit Tests",
         "phpunit": "vendor/bin/phpunit --bootstrap vendor/autoload.php"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../analysis",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../dbal-driver",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../index",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
 }

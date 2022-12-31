@@ -32,7 +32,9 @@ jobs:
                       ${{ runner.os }}-php-
 
             - name: Install dependencies
-              run: composer install --no-progress
+              run: composer update --prefer-dist --no-progress
+              env:
+                  COMPOSER_ROOT_VERSION: 0.1.0
 
             - name: Run lint suite
               run: composer run-script lint

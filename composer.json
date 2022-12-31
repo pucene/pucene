@@ -35,7 +35,6 @@
         {
             "type": "path",
             "url": "./packages/analysis",
-            "canonical": false,
             "options": {
                 "symlink": true
             }
@@ -43,7 +42,6 @@
         {
             "type": "path",
             "url": "./packages/dbal-driver",
-            "canonical": false,
             "options": {
                 "symlink": true
             }
@@ -51,7 +49,6 @@
         {
             "type": "path",
             "url": "./packages/index",
-            "canonical": false,
             "options": {
                 "symlink": true
             }
@@ -59,7 +56,6 @@
         {
             "type": "path",
             "url": "./packages/seal-adapter",
-            "canonical": false,
             "options": {
                 "symlink": true
             }
