@@ -14,8 +14,10 @@ namespace Pucene\SealAdapter;
 use Pucene\Index\PuceneIndexFactory;
 use Schranz\Search\SEAL\Adapter\ConnectionInterface;
 use Schranz\Search\SEAL\Schema\Index;
+use Schranz\Search\SEAL\Search\Condition\IdentifierCondition;
 use Schranz\Search\SEAL\Search\Result;
 use Schranz\Search\SEAL\Search\Search;
+use Pucene\Search as PuceneSearch;
 
 class PuceneConnection implements ConnectionInterface
 {
@@ -41,13 +43,25 @@ class PuceneConnection implements ConnectionInterface
 
     public function search(Search $search): Result
     {
-        // TODO: Implement search() method.
+        /** @var Index $index */
+        $index = $search->indexes[0];
 
-        return new Result($this->mockGenerator(), 1);
-    }
+        $composite = new PuceneSearch\Element\CompositeElement(
+            PuceneSearch\Element\CompositeType::AND,
+            array_map(function (mixed $condition) use ($index) {
+                return match (get_class($condition)) {
+                    IdentifierCondition::class => new PuceneSearch\Element\TermElement(
+                        $index->getIdentifierField()->name,
+                        $condition->identifier,
+                    ),
+                    default => throw new \Exception(),
+                };
+            }, $search->filters),
+        );
 
-    private function mockGenerator(): \Generator
-    {
-        yield ['id' => 1];
+        $puceneSearch = $this->indexFactory->create($index)->createSearch($composite);
+        $result = $puceneSearch->execute($search->offset, $search->limit);
+
+        return new Result($result->hits, $result->total);
     }
 }

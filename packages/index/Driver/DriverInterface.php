@@ -11,6 +11,8 @@
 
 namespace Pucene\Index\Driver;
 
+use Pucene\Search\QueryBuilder\QueryBuilderInterface;
+
 interface DriverInterface
 {
     public function isInitialized(): bool;
@@ -20,4 +22,6 @@ interface DriverInterface
     public function drop(): void;
 
     public function createRepository(): RepositoryInterface;
+
+    public function createQueryBuilder(): QueryBuilderInterface;
 }

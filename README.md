@@ -18,3 +18,4 @@ This repository is the monorepository of the pucene project and contains followi
 * [Index](packages/index): The index analyses, stores and searches for documents. It uses different other packages from
   this project.
 * [Seal Adapter](packages/seal-adapter): Adapter package that glues pucene into SEAL universe.
+* [Search](packages/search): 
